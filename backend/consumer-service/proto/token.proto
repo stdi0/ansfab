@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package token;
+
+service TokenService {
+    rpc List (Empty) returns (TokenList) {}
+    rpc Create(Token) returns (Empty) {}
+    rpc Update(Token) returns (Empty) {}
+}
+
+message Empty{}
+
+message Token {
+    int32 id = 1;
+    string objectType = 2;
+    string payload = 3;
+}
+
+message TokenResponse {
+    int32 id = 1;
+}
+
+message TokenList {
+    repeated Token tokens = 1;
+}
